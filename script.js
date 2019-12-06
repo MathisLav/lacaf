@@ -10,14 +10,17 @@ function setup(){
 
 function push_msg(){
     msg = window.document.getElementById("input_msg").value;
-    window.document.getElementById("input_msg").value = '';
+    if(msg != "") {
+        window.document.getElementById("input_msg").value = '';
 
-    add_msg("user : " + msg);
-    bot_resp(msg);
+        add_msg(msg, "user");
+        bot_resp(msg);
+    }
 }
 
-function add_msg(msg){
+function add_msg(msg, side){
     div_msg = document.createElement("div");
+    div_msg.classList.add("div_"+side);
     div_msg.appendChild(document.createTextNode(msg));
     window.document.getElementById("msgs_chat").insertBefore(div_msg, window.document.getElementById("div_pending"));
 }
@@ -31,7 +34,7 @@ function add_msg(msg){
     compte ++;
         
     window.setTimeout(function(resp) { 
-        add_msg("Gertrude : " + resp);
+        add_msg(resp, "bot");
         compte --;
         if(compte <= 0){
             compte = 0;
@@ -42,7 +45,7 @@ function add_msg(msg){
     // window.setTimeout(document.createTextNode, 1000, "Gertrude : " + msg);
     
     
-    // add_msg("Gertrude : " + resp);
+    // add_msg(resp, "bot");
 }
 
 function reload_cache() {
