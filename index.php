@@ -1,4 +1,6 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+   <head>
     <meta http-equiv='cache-control' content='no-cache, no-store, must-revalidate'>
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
@@ -12,12 +14,13 @@
   <body>
     <div id='chat'> 
       <header id="header_chat">Chat</header>
-      <div id="msgs_chat">
-        <div class="div_msg">Message</div>
-      </div>
+      <div id="msgs_chat"></div>
+      <div id="div_pending"></div>
+
+      <hr style="margin-top: 30px; width: 99%; border: 1px solid #006C80; opacity: 0.5;" />
       <form action="#">
           <input type="text" id="input_msg" placeholder="Votre message..." />
-          <input type="submit" onclick="push_msg()" text="Envoyer" />
+          <input type="submit" id="input_submit" onclick="push_msg()" text="Envoyer" />
         </form>
 
     </div>
